@@ -64,7 +64,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      posts: response.user.edge_owner_to_timeline_media.edges,
+      instagramPosts: response.user.edge_owner_to_timeline_media.edges,
     }, // will be passed to the page component as props
   };
 }
