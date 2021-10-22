@@ -51,7 +51,7 @@ export default function InstagramFeed({ instagramPosts = [] }) {
   );
 }
 
-InstagramFeed.getInitialProps = async (context) => {
+export async function getStaticProps(context) {
   // create a new client to communicate with  Instagram
   // this service requires authentication
   //with username and password parameters
@@ -81,6 +81,6 @@ InstagramFeed.getInitialProps = async (context) => {
     );
   }
   return {
-    instagramPosts: posts,
+    props: { instagramPosts: posts },
   };
-};
+}
