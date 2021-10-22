@@ -1,13 +1,13 @@
 module.exports = {
   reactStrictMode: true,
-  webpack(config, {}) {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      child_process: false,
-      net: false,
-      crypto: false,
-    };
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
+
     return config;
   },
 };
