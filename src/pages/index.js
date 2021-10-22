@@ -48,7 +48,11 @@ export default function Home({ instagramPosts }) {
       <footer className={styles.footer}>
         <p>
           Powered by{" "}
-          <a href="https://www.instagram.com/rinarunaan/" target="_blank">
+          <a
+            href="https://www.instagram.com/rinarunaan/"
+            rel="noreferrer"
+            target="_blank"
+          >
             {" mom"}
           </a>
         </p>

@@ -60,7 +60,7 @@ export default function InstagramFeed() {
             // let's wrap each post in an anchor tag
             // and construct the url for the post using
             // the shortcode that was returned from the API
-            <li>
+            <li key={i}>
               <a
                 href={`https://www.instagram.com/p/${node.shortcode}`}
                 key={i}
