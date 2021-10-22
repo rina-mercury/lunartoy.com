@@ -2,42 +2,7 @@ import React, { useState } from "react";
 import Instagram from "instagram-web-api";
 import Link from "next/link";
 
-export default function InstagramFeed() {
-  const [instagramPosts, setInstagramPosts] = useState([]);
-
-  async function getPosts(context) {
-    // create a new client to communicate with  Instagram
-    // this service requires authentication
-    //with username and password parameters
-    const client = new Instagram({
-      username: "lunar.toy",
-      password: "12Er3456",
-    });
-
-    let posts = [];
-    try {
-      await client.login();
-      // request photos for a specific instagram user
-      const instagram = await client.getPhotosByUsername({
-        username: process.env.IG_USERNAME,
-      });
-
-      if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
-        // if we receive timeline data back
-        //  update the posts to be equal
-        // to the edges that were returned from the instagram API response
-        posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"];
-      }
-    } catch (err) {
-      console.log(
-        "Something went wrong while fetching content from Instagram",
-        err
-      );
-    }
-
-    setInstagramPosts(posts);
-  }
-
+export default function InstagramFeed({ instagramPosts = [] }) {
   React.useEffect(() => {
     console.log(instagramPosts);
   }, [instagramPosts]);
@@ -84,4 +49,36 @@ export default function InstagramFeed() {
       </ul>
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  // create a new client to communicate with  Instagram
+  // this service requires authentication
+  //with username and password parameters
+  const client = new Instagram({
+    username: "lunar.toy",
+    password: "12Er3456",
+  });
+
+  let posts = [];
+  try {
+    await client.login();
+    // request photos for a specific instagram user
+    const instagram = await client.getPhotosByUsername({
+      username: "lunar.toy",
+    });
+
+    if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
+      // if we receive timeline data back
+      //  update the posts to be equal
+      // to the edges that were returned from the instagram API response
+      posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"];
+    }
+  } catch (err) {
+    console.log(
+      "Something went wrong while fetching content from Instagram",
+      err
+    );
+  }
+  setInstagramPosts(posts);
 }
