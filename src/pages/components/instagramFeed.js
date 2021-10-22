@@ -54,7 +54,7 @@ export default function InstagramFeed({ instagramPosts = [] }) {
 export async function getStaticProps(context) {
   const client = new Instagram();
 
-  const response = await client.getUserByUsername({
+  const response = await client.getPhotosByUsername({
     username: "lunar.toy",
   });
 
