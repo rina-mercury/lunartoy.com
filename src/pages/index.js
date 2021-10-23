@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import InstagramFeed from "./components/instagramFeed";
 import avatarPic from "../../public/luna-avatar.jpg";
 
 import styles from "../styles/Home.module.css";
@@ -43,7 +42,6 @@ export default function Home({ instagramPosts }) {
           </a>
         </div>
       </main>
-      <InstagramFeed />
 
       <footer className={styles.footer}>
         <p>
