@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 
 import avatarPic from "../../public/luna-avatar.jpg";
+import studioLogo from "../../public/731-logo.jpg";
+import instLogo from "../../public/inst-logo.png";
 
 import styles from "../styles/Home.module.css";
 
@@ -24,21 +26,34 @@ export default function Home({ instagramPosts }) {
         />
         <h1 className={styles.title}>Hello! My name is Lúna!</h1>
 
-        <h2 className={styles.description}>I'm toy poodle!</h2>
-        <p>Let's check my links!</p>
+        <h2 className={styles.description}>I'm toy poodle from Russia!</h2>
+        <p className={styles.actionText}>Let's check my links!</p>
 
         <div className={styles.grid}>
           <a
+            rel="noreferrer"
+            target="_blank"
             href="https://www.instagram.com/lunar.toy/"
             className={styles.card}
           >
-            <h2>Instagram &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <Image src={instLogo} />
+            <div className={styles.cardBody}>
+              <p className={styles.cardTitle}>My Instagram</p>
+              <p className={styles.cardText}>@lunar.toy</p>
+            </div>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.instagram.com/731.studio/"
+            className={styles.card}
+          >
+            <Image src={studioLogo} />
+            <div className={styles.cardBody}>
+              <p className={styles.cardTitle}>My business</p>
+              <p className={styles.cardText}>@731.studio</p>
+            </div>
           </a>
         </div>
       </main>
