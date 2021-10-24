@@ -4,6 +4,7 @@ import Image from "next/image";
 import avatarPic from "../../public/luna-avatar.jpg";
 import studioLogo from "../../public/731-logo.jpg";
 import instLogo from "../../public/inst-logo.png";
+import tiktokLogo from "../../public/tiktok-logo.png";
 
 import styles from "../styles/Home.module.css";
 
@@ -38,7 +39,20 @@ export default function Home({ instagramPosts }) {
           >
             <Image src={instLogo} />
             <div className={styles.cardBody}>
-              <p className={styles.cardTitle}>My Instagram</p>
+              <p className={styles.cardTitle}>Instagram</p>
+              <p className={styles.cardText}>DM me!</p>
+            </div>
+          </a>
+
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://vm.tiktok.com/ZSeYCnF7e/"
+            className={styles.card}
+          >
+            <Image src={tiktokLogo} />
+            <div className={styles.cardBody}>
+              <p className={styles.cardTitle}>TikTok</p>
               <p className={styles.cardText}>@lunar.toy</p>
             </div>
           </a>
@@ -51,7 +65,7 @@ export default function Home({ instagramPosts }) {
           >
             <Image src={studioLogo} />
             <div className={styles.cardBody}>
-              <p className={styles.cardTitle}>My business</p>
+              <p className={styles.cardTitle}>Mood</p>
               <p className={styles.cardText}>@731.studio</p>
             </div>
           </a>
@@ -60,7 +74,7 @@ export default function Home({ instagramPosts }) {
 
       <footer className={styles.footer}>
         <p>
-          Powered by{" "}
+          Powered with 💖 by{" "}
           <a
             href="https://www.instagram.com/rinarunaan/"
             rel="noreferrer"
