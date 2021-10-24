@@ -1,18 +1,25 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(217deg, #d9dded, hsla(0, 0%, 100%, 0) 70.71%),
+    linear-gradient(127deg, #eafbfe, hsla(0, 0%, 100%, 0) 70.71%),
+    linear-gradient(336deg, #fadff4, hsla(0, 0%, 100%, 0) 70.71%);
+}
 
-  background: linear-gradient(
-      217deg,
-      rgb(217 221 237),
-      rgba(255, 255, 255, 0) 70.71%
-    ),
-    linear-gradient(127deg, rgb(234 251 254), rgba(255, 255, 255, 0) 70.71%),
-    linear-gradient(336deg, rgb(250 223 244), rgba(255, 255, 255, 0) 70.71%);
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .main {
@@ -71,7 +78,7 @@
 .title,
 .description,
 .actionText {
-  color: #3e3636;
+  color: #4b394c;
 }
 
 .code {
@@ -95,18 +102,19 @@
 
 .card {
   display: inline-flex;
-  background: #aeabe53d;
+  background: #6e68e53d;
   padding: 8px;
   border-radius: 16px;
   align-items: flex-start;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 45%;
+  box-shadow: 0 1px 0px 0 rgb(62 27 68 / 32%);
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  background: #f9a7db6e;
+  background: #ff005054;
   transition: 250ms;
 }
 
@@ -149,5 +157,14 @@
   .card {
     margin-top: 10px;
     width: 100%;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
   }
 }
